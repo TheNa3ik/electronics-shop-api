@@ -1,0 +1,11 @@
+spring.application.name=shop-api
+
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
+
+# JWT Configuration
+jwt.secret=
+jwt.expiration-ms=86400000
+
+spring.jpa.hibernate.ddl-auto=update
