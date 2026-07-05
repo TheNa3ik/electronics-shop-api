@@ -1,4 +1,4 @@
-package com.thena3ik.shopapi.dto;
+package com.thena3ik.shopapi.dto.category;
 
 public record CategoryResponse(
         Long id,

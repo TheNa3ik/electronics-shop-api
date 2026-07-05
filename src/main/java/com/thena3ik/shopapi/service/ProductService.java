@@ -1,6 +1,10 @@
 package com.thena3ik.shopapi.service;
 
-import com.thena3ik.shopapi.dto.*;
+import com.thena3ik.shopapi.dto.common.PageResponse;
+import com.thena3ik.shopapi.dto.product.ProductFilterRequest;
+import com.thena3ik.shopapi.dto.product.ProductPatchRequest;
+import com.thena3ik.shopapi.dto.product.ProductRequest;
+import com.thena3ik.shopapi.dto.product.ProductResponse;
 import com.thena3ik.shopapi.entity.Category;
 import com.thena3ik.shopapi.entity.Product;
 import com.thena3ik.shopapi.exception.ResourceNotFoundException;

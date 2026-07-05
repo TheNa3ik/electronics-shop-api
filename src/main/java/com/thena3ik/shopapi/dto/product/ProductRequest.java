@@ -1,4 +1,4 @@
-package com.thena3ik.shopapi.dto;
+package com.thena3ik.shopapi.dto.product;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

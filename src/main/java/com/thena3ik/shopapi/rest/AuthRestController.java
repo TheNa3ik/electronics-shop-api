@@ -1,8 +1,8 @@
 package com.thena3ik.shopapi.rest;
 
-import com.thena3ik.shopapi.dto.AuthResponse;
-import com.thena3ik.shopapi.dto.LoginRequest;
-import com.thena3ik.shopapi.dto.RegisterRequest;
+import com.thena3ik.shopapi.dto.auth.AuthResponse;
+import com.thena3ik.shopapi.dto.auth.LoginRequest;
+import com.thena3ik.shopapi.dto.auth.RegisterRequest;
 import com.thena3ik.shopapi.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

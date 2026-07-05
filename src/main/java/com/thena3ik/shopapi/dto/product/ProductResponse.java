@@ -1,4 +1,4 @@
-package com.thena3ik.shopapi.dto;
+package com.thena3ik.shopapi.dto.product;
 
 public record ProductResponse(
         Long id,

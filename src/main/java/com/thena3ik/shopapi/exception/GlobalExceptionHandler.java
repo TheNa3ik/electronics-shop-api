@@ -1,6 +1,6 @@
 package com.thena3ik.shopapi.exception;
 
-import com.thena3ik.shopapi.dto.ErrorResponse;
+import com.thena3ik.shopapi.dto.common.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;

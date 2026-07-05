@@ -1,8 +1,8 @@
 package com.thena3ik.shopapi.service;
 
-import com.thena3ik.shopapi.dto.AuthResponse;
-import com.thena3ik.shopapi.dto.LoginRequest;
-import com.thena3ik.shopapi.dto.RegisterRequest;
+import com.thena3ik.shopapi.dto.auth.AuthResponse;
+import com.thena3ik.shopapi.dto.auth.LoginRequest;
+import com.thena3ik.shopapi.dto.auth.RegisterRequest;
 import com.thena3ik.shopapi.entity.Role;
 import com.thena3ik.shopapi.entity.User;
 import com.thena3ik.shopapi.exception.InvalidCredentialsException;

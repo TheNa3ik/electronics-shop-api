@@ -1,7 +1,7 @@
 package com.thena3ik.shopapi.mapper;
 
-import com.thena3ik.shopapi.dto.ProductRequest;
-import com.thena3ik.shopapi.dto.ProductResponse;
+import com.thena3ik.shopapi.dto.product.ProductRequest;
+import com.thena3ik.shopapi.dto.product.ProductResponse;
 import com.thena3ik.shopapi.entity.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

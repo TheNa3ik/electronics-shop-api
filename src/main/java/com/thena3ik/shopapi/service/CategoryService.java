@@ -1,6 +1,9 @@
 package com.thena3ik.shopapi.service;
 
-import com.thena3ik.shopapi.dto.*;
+import com.thena3ik.shopapi.dto.category.CategoryPatchRequest;
+import com.thena3ik.shopapi.dto.category.CategoryRequest;
+import com.thena3ik.shopapi.dto.category.CategoryResponse;
+import com.thena3ik.shopapi.dto.common.PageResponse;
 import com.thena3ik.shopapi.entity.Category;
 import com.thena3ik.shopapi.exception.ResourceConflictException;
 import com.thena3ik.shopapi.exception.ResourceNotFoundException;

@@ -1,9 +1,9 @@
 package com.thena3ik.shopapi.rest;
 
-import com.thena3ik.shopapi.dto.CategoryPatchRequest;
-import com.thena3ik.shopapi.dto.CategoryRequest;
-import com.thena3ik.shopapi.dto.CategoryResponse;
-import com.thena3ik.shopapi.dto.PageResponse;
+import com.thena3ik.shopapi.dto.category.CategoryPatchRequest;
+import com.thena3ik.shopapi.dto.category.CategoryRequest;
+import com.thena3ik.shopapi.dto.category.CategoryResponse;
+import com.thena3ik.shopapi.dto.common.PageResponse;
 import com.thena3ik.shopapi.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
