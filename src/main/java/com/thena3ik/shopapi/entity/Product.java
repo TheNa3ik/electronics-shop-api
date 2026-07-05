@@ -38,7 +38,7 @@ public class Product {
     private BigDecimal price;
 
     @Column(nullable = false)
-    private int stockQuantity = 0;
+    private Integer stockQuantity = 0;
 
     @CreationTimestamp
     @Column(updatable = false)

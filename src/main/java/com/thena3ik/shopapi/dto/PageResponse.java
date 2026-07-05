@@ -4,9 +4,9 @@ import java.util.List;
 
 public record PageResponse<T>(
         List<T> content,
-        int pageNumber,
-        int pageSize,
-        long totalElements,
-        int totalPages,
-        boolean isLastPage) {
+        Integer pageNumber,
+        Integer pageSize,
+        Long totalElements,
+        Integer totalPages,
+        Boolean isLastPage) {
 }

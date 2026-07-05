@@ -1,5 +1,4 @@
 package com.thena3ik.shopapi.dto;
 
-public record AuthResponse(
-        String token) {
+public record AuthResponse(String token) {
 }
