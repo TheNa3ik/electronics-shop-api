@@ -32,6 +32,11 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/v1/products/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/v1/categories/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/v1/orders").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/v1/orders/my").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/v1/orders/{orderId}").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/v1/orders").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PATCH, "/api/v1/orders/**").hasRole("ADMIN")
                 .anyRequest().hasRole("ADMIN")
         );
 
