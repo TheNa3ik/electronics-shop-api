@@ -1,9 +1,7 @@
 package com.thena3ik.shopapi.service;
 
-import com.thena3ik.shopapi.dto.order.OrderItemRequest;
-import com.thena3ik.shopapi.dto.order.OrderItemResponse;
-import com.thena3ik.shopapi.dto.order.OrderResponse;
-import com.thena3ik.shopapi.dto.order.PlaceOrderRequest;
+import com.thena3ik.shopapi.dto.common.PageResponse;
+import com.thena3ik.shopapi.dto.order.*;
 import com.thena3ik.shopapi.entity.*;
 import com.thena3ik.shopapi.exception.AccessDeniedException;
 import com.thena3ik.shopapi.exception.InsufficientStockException;
@@ -12,8 +10,12 @@ import com.thena3ik.shopapi.exception.ResourceNotFoundException;
 import com.thena3ik.shopapi.repository.OrderRepository;
 import com.thena3ik.shopapi.repository.ProductRepository;
 import com.thena3ik.shopapi.repository.UserRepository;
+import com.thena3ik.shopapi.specification.OrderSpecification;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.PredicateSpecification;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -129,13 +131,24 @@ public class OrderService {
     }
 
     @Transactional
-    public List<OrderResponse> getMyOrders() {
+    public PageResponse<OrderResponse> getMyOrders(Pageable pageable) {
         User user = getCurrentUser();
 
-        return orderRepository.findByUserId(user.getId())
+        Page<Order> page = orderRepository.findByUserId(user.getId(), pageable);
+
+        List<OrderResponse> content = page.getContent()
                 .stream()
                 .map(this::toOrderResponse)
                 .toList();
+
+        return new PageResponse<>(
+                content,
+                page.getNumber(),
+                page.getSize(),
+                page.getTotalElements(),
+                page.getTotalPages(),
+                page.isLast()
+        );
     }
 
     @Transactional
@@ -155,11 +168,31 @@ public class OrderService {
     }
 
     @Transactional
-    public List<OrderResponse> getAllOrders () {
-        return orderRepository.findAll()
+    public PageResponse<OrderResponse> getAllOrders (OrderFilterRequest filter, Pageable pageable) {
+        PredicateSpecification<Order> spec = PredicateSpecification.unrestricted();
+
+        if (filter.status() != null) spec = spec.and(OrderSpecification.hasStatus(filter.status()));
+        if (filter.userId() != null) spec = spec.and(OrderSpecification.hasUserId(filter.userId()));
+        if (filter.minTotalPrice() != null) spec = spec.and(OrderSpecification.hasMinTotalPrice(filter.minTotalPrice()));
+        if (filter.maxTotalPrice() != null) spec = spec.and(OrderSpecification.hasMaxTotalPrice(filter.maxTotalPrice()));
+        if (filter.fromDate() != null) spec = spec.and(OrderSpecification.createdAfter(filter.fromDate()));
+        if (filter.toDate() != null) spec = spec.and(OrderSpecification.createdBefore(filter.toDate()));
+
+        Page<Order> page = orderRepository.findBy(spec, q -> q.page(pageable));
+
+        List<OrderResponse> content = page.getContent()
                 .stream()
                 .map(this::toOrderResponse)
                 .toList();
+
+        return new PageResponse<>(
+                content,
+                page.getNumber(),
+                page.getSize(),
+                page.getTotalElements(),
+                page.getTotalPages(),
+                page.isLast()
+        );
     }
 
     @Transactional
