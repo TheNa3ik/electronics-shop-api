@@ -101,15 +101,15 @@ public class ProductService {
 
     @Transactional
     public ProductResponse saveProduct(ProductRequest request) {
-        Product unsavedEntity = productMapper.toEntity(request);
+        Product unsavedProduct = productMapper.toEntity(request);
 
         Category category = categoryRepository.findById(request.categoryId())
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found with id: " + request.categoryId()));
 
-        unsavedEntity.setCategory(category);
+        unsavedProduct.setCategory(category);
 
-        Product savedEntity = productRepository.save(unsavedEntity);
-        return productMapper.toResponseDto(savedEntity);
+        Product savedProduct = productRepository.save(unsavedProduct);
+        return productMapper.toResponseDto(savedProduct);
     }
 
     @Transactional
