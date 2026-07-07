@@ -4,6 +4,7 @@ import com.thena3ik.shopapi.dto.auth.AuthResponse;
 import com.thena3ik.shopapi.dto.auth.LoginRequest;
 import com.thena3ik.shopapi.dto.auth.RegisterRequest;
 import com.thena3ik.shopapi.service.AuthService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +21,13 @@ public class AuthRestController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
         AuthResponse result = authService.login(request);
         return ResponseEntity.ok(result);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
         AuthResponse result = authService.register(request);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
