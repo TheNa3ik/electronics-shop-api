@@ -1,4 +1,6 @@
-# Electronics Shop API
+# Electronics Shop API 
+
+[![Java CI](https://github.com/TheNa3ik/electronics-shop-api/actions/workflows/ci.yml/badge.svg)](https://github.com/TheNa3ik/electronics-shop-api/actions/workflows/ci.yml)
 
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.6-brightgreen.svg)](https://spring.io/projects/spring-boot)
