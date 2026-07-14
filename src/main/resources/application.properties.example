@@ -10,3 +10,4 @@ jwt.secret=YOUR_JWT_SECRET
 jwt.expiration-ms=86400000
 
 spring.jpa.hibernate.ddl-auto=update
+spring.jpa.open-in-view=false
