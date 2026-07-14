@@ -1,11 +1,12 @@
 spring.application.name=electronics-shop-api
 
-spring.datasource.url=
-spring.datasource.username=
-spring.datasource.password=
+# Database Connection
+spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_DB_NAME
+spring.datasource.username=YOUR_DB_USER
+spring.datasource.password=YOUR_DB_PASSWORD
 
-# JWT Configuration
-jwt.secret=
+# JWT Configuration — use a random string at least 256 bits (32+ characters) long
+jwt.secret=YOUR_JWT_SECRET
 jwt.expiration-ms=86400000
 
 spring.jpa.hibernate.ddl-auto=update
