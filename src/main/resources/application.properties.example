@@ -1,4 +1,4 @@
-spring.application.name=shop-api
+spring.application.name=electronics-shop-api
 
 spring.datasource.url=
 spring.datasource.username=

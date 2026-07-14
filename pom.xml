@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.thena3ik.shopapi</groupId>
-    <artifactId>shop-api</artifactId>
+    <artifactId>electronics-shop-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>shop-api</name>
-    <description>shop-api</description>
+    <name>electronics-shop-api</name>
+    <description>REST API backend for an electronic components online shop</description>
     <url/>
     <licenses>
         <license/>
